@@ -1,13 +1,21 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.zhangjie93.intellijpluginlearn</id>
-    <name>IntellijPluginLearn</name>
-    <vendor>zhangjie93</vendor>
 
+    <!-- 插件id，不可重复，必须唯一。插件的升级后续也是依赖插件id来进行识别的 -->
+    <id>com.github.zhangjie93.intellijpluginlearn</id>
+    <!--  插件名称 -->
+    <name>IntellijPluginLearn</name>
+    <!-- 插件开发人员，这里写一下开发者的个人信息. -->
+    <vendor email="" url="http://zhangjie.xyz">zhangjie</vendor>
+    <!--  插件描述，这里一般是写插件的功能介绍啥的 -->
+
+<!--    <description></description>-->
+    <!--  插件依赖，这里默认引用idea自带的依赖 -->
     <depends>com.intellij.modules.platform</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
+    <!-- 定义拓展点，比较少用到，一般是用于拓展其他人插件功能拓展点，或者是插件扩展了 IntelliJ 平台核心功能才会配置到这里 -->
 <!--    <extensions defaultExtensionNs="com.intellij">-->
 <!--        <toolWindow factoryClass="com.github.zhangjie93.intellijpluginlearn.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>-->
 <!--    </extensions>-->

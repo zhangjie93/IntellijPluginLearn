@@ -3,7 +3,7 @@ import org.jetbrains.changelog.markdownToHTML
 
 fun properties(key: String) = providers.gradleProperty(key)
 fun environment(key: String) = providers.environmentVariable(key)
-
+// 项目依赖的插件，默认会依赖kotlin
 plugins {
     id("java") // Java support
     alias(libs.plugins.kotlin) // Kotlin support
@@ -12,11 +12,12 @@ plugins {
     alias(libs.plugins.qodana) // Gradle Qodana Plugin
     alias(libs.plugins.kover) // Gradle Kover Plugin
 }
-
+//插件的一些基本信息
 group = properties("pluginGroup").get()
 version = properties("pluginVersion").get()
 
 // Configure project's dependencies
+// 插件等依赖的下载地址，默认会去中央仓库下载
 repositories {
     mavenCentral()
 }
@@ -32,6 +33,7 @@ kotlin {
 }
 
 // Configure Gradle IntelliJ Plugin - read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
+//这里是很重要的配置，定义了gradle构建时依赖的idea版本，进行插件调试的时候，会使用这里定义的idea版本来进行测试的。
 intellij {
     pluginName = properties("pluginName")
     version = properties("platformVersion")
@@ -55,7 +57,7 @@ koverReport {
         }
     }
 }
-
+//定义构建的任务，主要是编译的jdk版本，插件适用的idea版本等信息
 tasks {
     wrapper {
         gradleVersion = properties("gradleVersion").get()
