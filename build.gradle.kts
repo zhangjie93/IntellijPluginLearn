@@ -60,7 +60,11 @@ tasks {
     wrapper {
         gradleVersion = properties("gradleVersion").get()
     }
-
+    withType<JavaCompile> {
+        sourceCompatibility = "17"
+        targetCompatibility = "17"
+        options.encoding="UTF-8"
+    }
     patchPluginXml {
         version = properties("pluginVersion")
         sinceBuild = properties("pluginSinceBuild")
